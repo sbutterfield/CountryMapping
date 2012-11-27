@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Country Descriptor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Country Descriptors</value>
+    </caseValues>
+    <fields>
+        <help><!-- Textual descriptor for the parent Standardized Country. Any record on an object enabled for mapping which has this value in it&apos;s country field will be updated to the standardized value chosen by the organizations preferences. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Standardized Country --></label>
+        <name>Standardized_Country__c</name>
+        <relationshipLabel><!-- Country Descriptors --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

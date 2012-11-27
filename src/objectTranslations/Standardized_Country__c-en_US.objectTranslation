@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Standardized Country</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Standardized Countries</value>
+    </caseValues>
+    <fields>
+        <label><!-- FIPS 10-4 --></label>
+        <name>FIPS_10_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISO 3166-1 alpha-2 --></label>
+        <name>ISO_3166_1_alpha_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISO 3166-1 alpha-3 --></label>
+        <name>ISO_3166_1_alpha_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- ISO 3166-1 numeric --></label>
+        <name>ISO_3166_1_numeric__c</name>
+    </fields>
+    <layouts>
+        <layout>Standardized Country Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
