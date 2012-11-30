@@ -20,22 +20,13 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class TestPostInstallAdapter {
+private class TestPostInstallAsynchProcessor {
 
-    static testMethod void testPostInstallAdapter() {
-    	Test.startTest();
-    	// Initialize mock http callout response
-    	StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
+    static testMethod void testSetCountryMappings() {
+        StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
 		mock.setStaticResource('test_jsoncontent');
 		mock.setStatusCode(200);
 		mock.setHeader('Content-Type', 'application/json');
 		Test.setMock(HttpCalloutMock.class, mock);
-		
-        PostInstallAdapter pia = new PostInstallAdapter();
-        Test.testInstall(pia, null);
-        Test.stopTest();
-        List<Standardized_Country__c> scList = new List<Standardized_Country__c>([Select Id,Name From Standardized_Country__c Where IsDeleted = false]);
-        // Callouts not allowed, cannot assert much for behavior here.
-        System.assert(pia.success);
     }
 }
