@@ -58,6 +58,7 @@
         <relationshipLabel>Country Descriptors</relationshipLabel>
         <relationshipName>Country_Descriptors</relationshipName>
         <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>

@@ -11,7 +11,11 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
+<<<<<<< HEAD
 			<name>com.salesforce.ide.builder.upgrade</name>
+=======
+			<name>com.salesforce.ide.builder.online</name>
+>>>>>>> dev
 			<arguments>
 			</arguments>
 		</buildCommand>
