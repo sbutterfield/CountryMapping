@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Country Mapping by sbutterfield</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Country Mapping</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/sbutterfield/CountryMapping">View the Project on GitHub <small>sbutterfield/CountryMapping</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/sbutterfield/CountryMapping/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/sbutterfield/CountryMapping/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/sbutterfield/CountryMapping">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Simple Country Mapping application for Force.com</h1>
+
+<h2>Introduction</h2>
+
+<p>This application is focused on a simplified approach towards mapping country keyword text and patterns to a configurable standardized format:</p>
+
+<ul>
+<li>ISO 3166-1 alpha-2</li>
+<li>ISO 3166-1 alpha-3</li>
+<li>ISO 3166-1 numeric</li>
+<li>FIPS 10-4 alpha-2</li>
+</ul><p>The application uses a system of two related objects to manage keyword to value relational mapping. It uses highly optimized algorithms to account for I/O normaliztion and mis-spellings.</p>
+
+<h2>License</h2>
+
+<p>This is free software, but I sincerely hope that you show credit and maintain the open license if you decide to use this in a project or use concepts derrived from it.
+If you do make improvements to the software, I hope that you will create a pull request so that those improvements can be merged and used for the benefit of everyone.</p>
+
+<pre><code>This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+</code></pre>
+
+<h2>AppExchange</h2>
+
+<p>Country Mapping application is distributed as both a managed and un-managed 'apex certified' package. Here are the installation links:
+Managed:<br>
+Un-managed:  </p>
+
+<h2>Set-up and Use</h2>
+
+<h3>Object-model Glossary</h3>
+
+<pre><code>Standardized_Country__c
+</code></pre>
+
+<p>Parent object to Country_Descriptor__c containing indexed fields of standardized country representations.</p>
+
+<pre><code>Country_Descriptor__c
+</code></pre>
+
+<p>Child object to Standardized_Country__c containing an indexed descriptor field used to represent any valid input pattern which could represent it's Standardized_Country__c parent.</p>
+
+<pre><code>global virtual CountryMapping{}
+</code></pre>
+
+<p>Apex wrapper object used for parsing and combined representation of a matched and mapped keyword--&gt;standardized country format. This class was made virtual to support overrides in managed package environments.</p>
+
+<pre><code>global virtual RuntimeState{}
+</code></pre>
+
+<p>Apex object that is initialized and used at the opening of each runtime to maintain a description of this applications stateful presence and operating order throughout mult-context runtimes. This class was made virtual to support overrides in managed package environments.</p>
+
+<h3>Installation Routine</h3>
+
+<p>Usually this application's security controls will limit use and visibility only to administrators and/or operations users. Follow the typical set-up routine and you should be fine.</p>
+
+<p>Upon installing a packaged version of this application, a post-installation script will execute and pre-populate the Standardized_Country__c, and Country_Descriptor__c child-object with 'out-of-the-box' data.
+The script will populate a new Standardized_Country__c row for each unique:</p>
+
+<ul>
+<li>ISO 3166-1 alpha-2 (ex: US)</li>
+<li>ISO 3166-1 alpha-3 (ex: USA)</li>
+<li>ISO 3166-1 numeric (ex: 840)</li>
+</ul><p>The script will then populate a new Country_Descriptor__c row for each Standardized_Country__c with it's generally accepted, normalized text descriptor:</p>
+
+<ul>
+<li>Descriptor (ex: United States)</li>
+</ul><p>Once the installation script finishes successfully, it will notify the installing Adminstrator via e-mail.</p>
+
+<p><em>Note:</em>  </p>
+
+<blockquote>
+<p>To acquire and load the FIPS mapping for Standardized_Country__c records, I suggest manually loading the mapping from:
+<a href="http://opengeocode.org/download/fips2iso.txt">http://opengeocode.org/download/fips2iso.txt</a></p>
+
+<p>For a comprehensive mapping file, including multi-lingual standardization:<br><a href="http://opengeocode.org/download/countrynames.txt">http://opengeocode.org/download/countrynames.txt</a></p>
+</blockquote>
+
+<h3>Configuration, tuning and usage</h3>
+
+<p>The application contains triggers for Lead, Contact and Account standard SObjects. When a record gets inserted or updated, these triggers will fire and attempt to map a non-standardized value to a standardized one.</p>
+
+<p>You must start by telling the application which standardized value you want to use. Country Mapping uses a public configuration setting to control both application behavior and standardization settings. You are allowed to turn individual triggers on-or-off, control literal text matching or allow for fuzzing matching which accounts for mis-spellings, and finally tune the weight for a fuzzy match.</p>
+
+<p><em>Note:</em>  </p>
+
+<blockquote>
+<p>You can also create your own triggers and/or batch classes and reference a helper class which calls to global method signature:</p>
+</blockquote>
+
+<pre><code>CountryTriggerHelper.getCountryMapping(String input)
+</code></pre>
+
+<blockquote>
+<p>and retreives the appropriate country mapping from an <code>input</code> country string.</p>
+</blockquote>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/sbutterfield">sbutterfield</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
