@@ -2,12 +2,12 @@
  *	@author: Shawn Butterfield, Salesforce.com Inc.
  *	This class is called from an Installation Context Adapter to automatically create some standardized 'out-of-the-box' Country Mappings
  */
-global virtual class PostInstallAsynchProcessor {
+public virtual class PostInstallAsynchProcessor {
 	
-	global static String endpoint = 'http://api.edoceo.com/iso/3166/1?f=json';
+	private static String endpoint = 'http://api.edoceo.com/iso/3166/1?f=json';
 	
 	@future(Callout=true)
-	global static void setCountryMappings() {
+	public static void setCountryMappings() {
 		if(endpoint != null && !RuntimeState.isInFutureContext) {
 			RuntimeState.isInFutureContext = true;
 			List<CountryMapping> countries = parseResponse(getCountries());
