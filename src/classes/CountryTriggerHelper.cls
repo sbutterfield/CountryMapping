@@ -6,5 +6,10 @@ public with sharing class CountryTriggerHelper {
 		return null;
 	}
 	
+	private static String getConfiguration() {
+		Map<String, SObject> mapping = CountryMapping__c.getAll();
+		return (String)ConfigurationSetting.getSetting('country', mapping);
+	}
+	
 	private CountryTriggerHelper() {}
 }
