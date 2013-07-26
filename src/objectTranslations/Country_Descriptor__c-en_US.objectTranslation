@@ -9,6 +9,10 @@
         <value>Country Descriptors</value>
     </caseValues>
     <fields>
+        <label><!-- CountrySoundexKey --></label>
+        <name>CountrySoundexKey__c</name>
+    </fields>
+    <fields>
         <help><!-- Textual descriptor for the parent Standardized Country. Any record on an object enabled for mapping which has this value in it&apos;s country field will be updated to the standardized value chosen by the organizations preferences. --></help>
         <label><!-- Description --></label>
         <name>Description__c</name>

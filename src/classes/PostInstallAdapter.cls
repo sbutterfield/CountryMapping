@@ -21,10 +21,28 @@ global class PostInstallAdapter implements InstallHandler {
 			mail.setSubject('Post-Install script ran successfully');
 			mail.setPlainTextBody('Post-Install script created 249 country mappings for you.');
 			Messaging.sendEmail(new Messaging.Email[] { mail });
+			createCustomSetting();
 			success = true;
 		}
 		else {
 			// Upgrading or re-installing, do nothing.
 		}
 	}
+	
+    private static void createCustomSetting() {
+    	CountryConfig__c config;
+    	try {
+    		config = CountryConfig__c.getInstance('Settings');
+    		if(config == null){
+	    		config = new CountryConfig__c();
+	    		config.Name = 'Settings';
+		    	config.Selected_Output__c = 'Country_Mapping__ISO_3166_1_alpha_3__c';
+		    	insert config;
+    		}
+    	}
+    	catch (Exception e) {
+    		System.debug(LoggingLevel.Error,'Error while trying to create custom setings. ' +e);
+    	}
+    	
+    }
 }

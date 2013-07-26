@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data%2Ecom Algorithms Library</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>A collection of algorithms used by select Data.com Professional Services packages that enable for phonetic, string distance, lexicographical sorting and various other means of matching phrases or complex UDT&apos;s together.</description>
+    <namespacePrefix>ddcLib2</namespacePrefix>
+    <types>
+        <members>MatchAlgorithm</members>
+        <members>Soundex</members>
+        <members>SoundexTest</members>
+        <name>ApexClass</name>
+    </types>
+    <version>27.0</version>
+</Package>

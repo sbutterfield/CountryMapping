@@ -26,7 +26,7 @@ private class TestPostInstallAdapter {
     	Test.startTest();
     	// Initialize mock http callout response
     	StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
-		mock.setStaticResource('test_jsoncontent');
+		mock.setStaticResource('jsoncontent');
 		mock.setStatusCode(200);
 		mock.setHeader('Content-Type', 'application/json');
 		Test.setMock(HttpCalloutMock.class, mock);

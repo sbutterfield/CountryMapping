@@ -6,19 +6,11 @@
     </types>
     <types>
         <members>*</members>
-        <name>ApexComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>ApexTrigger</name>
     </types>
     <types>
         <members>*</members>
-        <name>CustomDataType</name>
+        <name>CustomLabels</name>
     </types>
     <types>
         <members>*</members>
@@ -34,15 +26,15 @@
     </types>
     <types>
         <members>*</members>
-        <name>DataCategoryGroup</name>
+        <name>Layout</name>
     </types>
     <types>
-        <members>*</members>
-        <name>Layout</name>
+        <members>ApexDevNet</members>
+        <name>RemoteSiteSetting</name>
     </types>
     <types>
         <members>*</members>
         <name>StaticResource</name>
     </types>
-    <version>26.0</version>
+    <version>27.0</version>
 </Package>

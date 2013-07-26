@@ -3,5 +3,28 @@
     <customSettingsType>List</customSettingsType>
     <customSettingsVisibility>Public</customSettingsVisibility>
     <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Fuzzy_Match_Enabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Match service is engaged when no country mapping could be found using string literal comparison. This service will account for mis-spellings or formatting issues.</inlineHelpText>
+        <label>Fuzzy Match Enabled</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Selected_Output__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Control the output formatting for normalization.
+Values:
+FIPS_10_4__c
+ISO_3166_1_alpha_2__c
+ISO_3166_1_alpha_3__c
+ISO_3166_1_numeric__c</inlineHelpText>
+        <label>Selected Output</label>
+        <length>22</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Country Mapping Config</label>
 </CustomObject>

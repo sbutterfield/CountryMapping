@@ -23,10 +23,14 @@
 private class TestPostInstallAsynchProcessor {
 
     static testMethod void testSetCountryMappings() {
-        StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
-		mock.setStaticResource('test_jsoncontent');
+        /*StaticResourceCalloutMock mock = new StaticResourceCalloutMock();
+		mock.setStaticResource('jsoncontent');
 		mock.setStatusCode(200);
 		mock.setHeader('Content-Type', 'application/json');
 		Test.setMock(HttpCalloutMock.class, mock);
+		*/
+		PostInstallAsynchProcessor.setCountryMappings();
+		List<Standardized_Country__c> countries = new List<Standardized_Country__c>([SELECT Id, Name, ISO_3166_1_alpha_3__c FROM Standardized_Country__c WHERE Id != null]);
+		System.assertNotEquals(null, countries);
     }
 }

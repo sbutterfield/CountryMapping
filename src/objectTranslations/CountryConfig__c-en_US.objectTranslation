@@ -8,5 +8,20 @@
         <plural>true</plural>
         <value>Country Mapping Config</value>
     </caseValues>
+    <fields>
+        <help><!-- Match service is engaged when no country mapping could be found using string literal comparison. This service will account for mis-spellings or formatting issues. --></help>
+        <label><!-- Fuzzy Match Enabled --></label>
+        <name>Fuzzy_Match_Enabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Control the output formatting for normalization.
+Values:
+FIPS_10_4__c
+ISO_3166_1_alpha_2__c
+ISO_3166_1_alpha_3__c
+ISO_3166_1_numeric__c --></help>
+        <label><!-- Selected Output --></label>
+        <name>Selected_Output__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

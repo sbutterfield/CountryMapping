@@ -11,7 +11,7 @@
                 <field>OrderId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Readonly</behavior>
                 <field>Product2Id</field>
             </layoutItems>
             <layoutItems>

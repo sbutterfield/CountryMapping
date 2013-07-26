@@ -93,10 +93,9 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>SC-{00000}</displayFormat>
-        <label>Record Number</label>
+        <label>ISO Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Standardized Countries</pluralLabel>
     <searchLayouts/>
